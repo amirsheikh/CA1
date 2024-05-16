@@ -1,4 +1,5 @@
-package dramaplays;
+package dramaplays.model;
+
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public class Invoice {
         this.customer = customer;
         this.performances = performances;
     }
+
+
 }

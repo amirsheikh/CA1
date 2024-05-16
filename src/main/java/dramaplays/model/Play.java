@@ -1,4 +1,4 @@
-package dramaplays;
+package dramaplays.model;
 
 public class Play {
 
@@ -8,5 +8,9 @@ public class Play {
     public Play(String name, String type) {
         this.name = name;
         this.type = type;
+    }
+
+    public String getName() {
+        return name;
     }
 }
