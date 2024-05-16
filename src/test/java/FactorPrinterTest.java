@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FactorPrinterTest {
 
@@ -549,6 +550,21 @@ public class FactorPrinterTest {
                 Amount owed is $1,030.00
                 You earned 17 credits
                 """);
+    }
+
+
+    @Test
+    void testBadType() {
+        plays = new HashMap<>();
+        int audienceValue = 35;
+        plays.put("tragedyPlay", new Play("0", "t"));
+        plays.put("comedyPlay", new Play("1", "comedy"));
+
+        Invoice invoice = new Invoice("amirhossein", Arrays.asList(
+                new Performance("tragedyPlay", audienceValue),
+                new Performance("comedyPlay", audienceValue)));
+        FactorPrinter factorPrinter = new FactorPrinter();
+        assertThrows(Error.class, () -> factorPrinter.print(invoice, plays));
     }
 
 
